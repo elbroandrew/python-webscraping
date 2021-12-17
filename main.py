@@ -6,15 +6,18 @@ website = 'https://www.cars.com/shopping/results/?stock_type=cpo&makes%5B%5D=mer
 response = requests.get(website)
 
 
-#check the status code:
-print(response.status_code)
-
 soup = BeautifulSoup(response.content, 'html.parser')
 results = soup.find_all('div', {'class': 'vehicle-card'})
 
+name = results[0].find('h2').get_text()
+mileage = results[0].find('div', {'class': 'mileage'}).get_text()
+rating = results[0].find('span', {'class': 'sds-rating__count'}).get_text()
+rating_count = results[0].find('span', {'class': 'sds-rating__link'}).get_text()
+price = results[0].find('span', {'class': 'primary-price'}).get_text()
+car_dealer: str = results[0].find('div', {'class': 'dealer-name'}).get_text().strip()
 
 def main():
-    print(len(results))
+    print()
 
 
 if __name__ == '__main__':
