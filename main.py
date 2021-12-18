@@ -60,8 +60,20 @@ for result in results:
         dealer_name.append('N/A')
 
 
+car_dealer = pd.DataFrame(
+    {
+        'Name': name,
+        'Mileage': mileage,
+        'Dealer Name': dealer_name,
+        'Rating': rating,
+        'Rating Count': rating_count,
+        'Price': price
+    }
+)
+
+
 def main():
-    print(name)
+    print(car_dealer)
 
 
 if __name__ == '__main__':
