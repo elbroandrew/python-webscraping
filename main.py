@@ -75,6 +75,10 @@ car_dealer = pd.DataFrame(
 car_dealer['Rating Count'] = car_dealer['Rating Count'].apply(lambda x: x.strip('reviews)').strip('('))
 
 
+# Output to Excel file
+car_dealer.to_excel('single_page_car.xlsx', index=False)
+
+
 def main():
     print(car_dealer['Rating Count'])
 
