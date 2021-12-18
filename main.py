@@ -71,9 +71,12 @@ car_dealer = pd.DataFrame(
     }
 )
 
+# Data Cleaning
+car_dealer['Rating Count'] = car_dealer['Rating Count'].apply(lambda x: x.strip('reviews)').strip('('))
+
 
 def main():
-    print(car_dealer)
+    print(car_dealer['Rating Count'])
 
 
 if __name__ == '__main__':
